@@ -21,11 +21,13 @@ system panel), a focused `TextField` is unfocused for good. A plain HTML
      service, let its autofill UI appear over the field.
 4. Repeat with `http://<host>:8080/plain.html`.
 
-**Expected:** the field still has focus and the keyboard is still open (as on
-`plain.html`, where `document.activeElement` stays the `INPUT`).
+**Expected:** the field still has focus when the window regains it, as on
+`plain.html` (purple outline stays; `document.activeElement` stays the
+`INPUT`).
 
-**Actual:** the Flutter field is unfocused and the keyboard is gone;
-`document.activeElement` is `FLUTTER-VIEW`.
+**Actual:** the Flutter field is unfocused (the "Name" label drops back into
+the empty field); `document.activeElement` is `FLUTTER-VIEW`. Typing does
+nothing until the field is tapped again.
 
 ## Desktop simulation
 
